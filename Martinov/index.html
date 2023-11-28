@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School VR Panoramas</title>
+    <link rel="stylesheet" href="https://aframe.io/releases/1.5.0/aframe.min.css">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        #vrButton {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #vrButton:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Style for the VR panorama container */
+        #vrContainer {
+            display: none;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(5px);
+            z-index: 0;
+        }
+
+        /* Glassmorphism Menu */
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        /* Add more styles to your menu items as needed */
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Style for the portal link */
+        .portal-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .portal-link:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Animation for breathing background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            animation: breathe 10s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                background-size: 100% 100%;
+            }
+            50% {
+                background-size: 120% 120%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="menu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</div>
+
+<div class="container">
+    <h1>School VR Panoramas</h1>
+    <button id="vrButton">Explore VR Panoramas</button>
+</div>
+
+<div id="vrContainer">
+    <!-- A-Frame scene for VR panorama -->
+    <a-scene>
+        <!-- Replace this with your actual VR panorama source -->
+        <a-sky src="../images/360.jpg" rotation="0 -130 0"></a-sky>
+
+        <!-- Sample text in the VR panorama -->
+        <a-entity
+            text="value: Welcome to School VR Experience!; align: center; wrapCount: 20; color: #fff; width: 2;"
+            position="-1 2.5 -3">
+        </a-entity>
+
+        <!-- Portal to the next 360 image -->
+        <a-link class="portal-link" href="../Dobrin/index.html" position="1 1.5 -10" title="Next 360 Image">Go to Next 360 Image</a-link>
+    </a-scene>
+</div>
+<script>
+    document.getElementById('vrButton').addEventListener('click', function () {
+        // Hide the homepage container
+        document.querySelector('.container').style.display = 'none';
+
+        // Display the VR panorama container
+        document.getElementById('vrContainer').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>

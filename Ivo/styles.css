@@ -1,0 +1,101 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('images/background.jpg'); /* Change the path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: Prevents the background from scrolling with the content */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.website-title {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    display: none;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+.centered-article {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.rounded-rectangle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    margin: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.rounded-rectangle:hover {
+    background-color: #e0e0e0;
+}
+
+.rounded-rectangle img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+}

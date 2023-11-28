@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: cadetblue;
+        }
+
+        .panorama-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our School</h1>
+    <p>Click on a panorama to explore!</p>
+    
+    <button class="panorama-button" onclick="navigateToPanorama('Panoramas/360.html')">Panorama 1</button>
+    <button class="panorama-button" onclick="navigateToPanorama('Panoramas/img1.html')">Panorama 2</button>
+    <button class="panorama-button" onclick="navigateToPanorama('Panoramas/img2.html')">Panorama 3</button>
+    <button class="panorama-button" onclick="navigateToPanorama('Panoramas/img3.html')">Panorama 4</button>
+    <button class="panorama-button" onclick="navigateToPanorama('Panoramas/img4.html')">Panorama 5</button>
+    <button class="panorama-button" onclick="navigateToPanorama('Panoramas/img5.html')">Panorama 6</button>
+    <button class="panorama-button" onclick="navigateToPanorama('Panoramas/img6.html')">Panorama 7</button>
+    <!-- Add more buttons for additional panoramas -->
+
+    <script>
+        function navigateToPanorama(panoramaPath) {
+            window.location.href = encodeURIComponent(panoramaPath);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Homepage</title>
+        <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+        <script src="../tereza/script.js"></script>
+    </head>
+    <body>
+        <!--<a-scene>
+            <a-sky src="../images/360.jpg" rotation="0 -130 0"></a-sky>
+      
+            <a-text font="kelsonsans" value="Text" width="6" position="-2.5 0 -1.5"
+                    rotation="0 45 0"></a-text> 
+
+          </a-scene>-->
+
+
+
+          <a-scene>
+            <a-sky src="../images/360.jpg" rotation="0 -130 0"></a-sky>
+            <a-assets>
+              <img id="homeThumbnail" src="../images/mountain.png">
+            </a-assets>
+          
+            <a-link href="room2.html" title="My Other room" position="1 1.5 -10" image="#homeThumbnail"></a-link>
+          </a-scene>
+          
+    </body>
+</html>

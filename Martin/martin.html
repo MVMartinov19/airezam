@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>360 VR Project Erasmus Project</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://aframe.io/releases/1.2.0/aframe.min.js'></script>
+</head>
+<body>
+
+    <a-scene>
+        <!-- Video entity -->
+        <a-video id="video" src="path/to/your/video.mp4" rotation="0 -130 0" visible="true" autoplay="true"></a-video>
+        <!-- 360-degree images -->
+        <a-sky id="image1" src="../images/360.jpg" rotation="0 -130 0"></a-sky>
+        <a-sky id="image2" src="../images/mountain.png" rotation="0 -130 0" visible="false"></a-sky>
+        <a-sky id="image3" src="../images/img1.jpg" rotation="0 -130 0" visible="false"></a-sky>
+        <a-sky id="image4" src="../images/img2.jpg" rotation="0 -130 0" visible="false"></a-sky>
+        <a-sky id="image5" src="../images/img3.jpg" rotation="0 -130 0" visible="false"></a-sky>
+        <a-sky id="image6" src="../images/img4.jpg" rotation="0 -130 0" visible="false"></a-sky>
+        <a-sky id="image7" src="../images/img5.jpg" rotation="0 -130 0" visible="false"></a-sky>
+        <a-sky id="image8" src="../images/img6.jpg" rotation="0 -130 0" visible="false"></a-sky>
+        <!-- Add more images as needed -->
+
+        <!-- Button to switch between images -->
+        <a-entity
+            id="switchButton"
+            geometry="primitive: plane; width: 2; height: 1"
+            material="shader: flat; src: #buttonTexture; transparent: true"
+            position="0 1.5 -5"
+            onclick="switchImage()"
+            text="value: Click to switch; align: center; wrapCount: 20; color: #fff"
+        ></a-entity>
+
+        <!-- Camera and cursor -->
+        <a-camera>
+            <a-cursor></a-cursor>
+        </a-camera>
+        
+        <script>
+            AFRAME.registerComponent('click-listener', {
+                init: function () {
+                    var el = this.el;
+                    el.addEventListener('click', function () {
+                        switchImage();
+                    });
+                }
+            });
+
+            var currentImageIndex = 0;
+            var imageIds = ['image1', 'image2', 'image3', 'image4', 'image5', 'image6', 'image7', 'image8']; // Add more image IDs as needed
+
+            function switchImage() {
+                var currentImageId = imageIds[currentImageIndex];
+                var nextImageIndex = (currentImageIndex + 1) % imageIds.length;
+                var nextImageId = imageIds[nextImageIndex];
+
+                // Animate the transition for the current image
+                var currentImage = document.getElementById(currentImageId);
+                currentImage.setAttribute('animation', {
+                    property: 'material.opacity',
+                    to: 0,
+                    dur: 1000
+                });
+
+                // Animate the transition for the next image
+                var nextImage = document.getElementById(nextImageId);
+                nextImage.setAttribute('visible', true);
+                nextImage.setAttribute('material', 'opacity: 0');
+
+                nextImage.setAttribute('animation', {
+                    property: 'material.opacity',
+                    to: 1,
+                    dur: 1000
+                });
+
+                // Set timeout to ensure the previous image is fully faded out before hiding it
+                setTimeout(function () {
+                    currentImage.setAttribute('visible', false);
+                    currentImage.removeAttribute('animation');
+                }, 1000);
+
+                currentImageIndex = nextImageIndex;
+            }
+        </script>
+
+        <!-- Add the click-listener component to the button -->
+        <a-entity id="switchButton" geometry="primitive: plane; width: 2; height: 1" material="shader: flat; src: #buttonTexture; transparent: true" position="0 1.5 -5" click-listener text="value: Click to switch; align: center; wrapCount: 20; color: #fff"></a-entity>
+
+        <!-- Define the button texture -->
+        <a-assets>
+            <img id="buttonTexture" src="path/to/your/button_texture.png">
+        </a-assets>
+    </a-scene>
+</body>
+</html>

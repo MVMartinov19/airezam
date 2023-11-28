@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>VR PROJECT</title>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">Your Logo</div>
+            <h1 class="website-title">VR PROJECT</h1>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="dynamic-nav">
+                <!-- Navigation links will be dynamically added here -->
+            </ul>
+        </div>
+    </header>
+<style>
+     .website-title {
+        font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(90deg, rgba(27, 100, 142, 0.7), rgba(60, 64, 68, 0)); /* Customize the gradient colors and opacity */
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+    </style>
+    <section id="home" class="content-section">
+        <article class="centered-article">
+            <h1>Welcome to the VR PROJECT official website</h1>
+            <p>This is an example article on the home tab. You can customize this text to provide information about your website.</p>
+        </article>
+
+        <div class="image-container">
+            <a href="#" class="rounded-rectangle" onclick="showContent('content')">
+                <img src="image1.jpg" alt="Image 1">
+            </a>
+            <a href="#" class="rounded-rectangle" onclick="showContent('content')">
+                <img src="image2.jpg" alt="Image 2">
+            </a>
+            <a href="#" class="rounded-rectangle" onclick="showContent('content')">
+                <img src="image3.jpg" alt="Image 3">
+            </a>
+        </div>
+    </section>
+
+    <section id="content" class="content-section">
+        <h2>Content Section</h2>
+        <p>This is where your content goes.</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
